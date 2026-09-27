@@ -3,7 +3,7 @@
   "rules": [
     {
       "path": "rules/docs-stay-current.md",
-      "hash": "56dca9da7ae4669adc717ecc011b41484a19b96bc243e41c4453b0ab4c5245be",
+      "hash": "71f18b14de67141eee2a490c80072027d0510defbd09f8e1e74293088a7f43db",
       "description": "Prose docs stay current with the code",
       "globs": [
         "plugins/*/**",

@@ -14,6 +14,9 @@ desktop.ini
 # local-only). settings.local.json (per-machine overrides) stays ignored.
 .claude/*
 !.claude/settings.json
+!.claude/hooks/
+!.claude/hooks/agent-doc-drift.js
+!.claude/hooks/agent-doc-drift.test.js
 !.claude/live-rules/
 !.claude/live-rules/**
 !.claude/.codebase-info/

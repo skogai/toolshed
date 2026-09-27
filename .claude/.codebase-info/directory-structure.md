@@ -1,8 +1,8 @@
 # Directory structure
 
-Last Updated: 2026-09-08
+Last Updated: 2026-09-16
 
-- `.claude/`: project settings, live rules, and generated codebase map.
+- `.claude/`: project settings, repo-owned hooks, live rules, and generated codebase map. `.claude/hooks/agent-doc-drift.js` is the lightweight project `PostToolUse` guard for agent-facing documentation drift.
 - `.claude-plugin/`: marketplace manifest and published plugin entries.
 - `plugins/sidequest/`: board engine, MCP server, CLI, hooks, dashboard, tests, committed build output, and bundled stable executor agents under `agents/`. Pure lifecycle and worktree decisions live in `src/lib/kernel/`; persistence is split under `src/lib/store/`, with matching compiled modules under `lib/`. `scripts/generate-bundled-agents.mjs` derives the packaged agent markdown from `lib/agentsync.js`. `plugins/sidequest/scripts/owned-process-tree.js` and `plugins/sidequest/scripts/owned-phase-supervisor.js` keep test and release subprocess ownership explicit through cleanup.
 - `plugins/observability/`: observer, statusline, Collector setup, and sinks under `observability/sinks/`, including Grafana model pricing and generated dashboard templates, plus the eight lifecycle hooks and the `enable-project-telemetry` skill.

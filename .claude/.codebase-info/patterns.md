@@ -1,6 +1,6 @@
 # Patterns
 
-Last Updated: 2026-09-08
+Last Updated: 2026-09-16
 
 - Build from source, run committed output: Sidequest TypeScript under `src/` compiles to `lib/`, `bin/`, and bundled hook files, while `scripts/generate-bundled-agents.mjs` renders the committed `agents/` roster from `lib/agentsync.js`. Runtime manifests point at generated files; release suite discovery is shared through `plugins/sidequest/lib/suite-resolver.js` and re-exported by `scripts/release/lib/suites.mjs`.
 - Stable executor packaging and migration: the Sidequest plugin owns its generated diagnostic, dispatch, and read-only agent definitions in `agents/`; session-start maintenance and normal CLI sync remove only marked legacy generated files from user agent directories, preserving custom content.
@@ -21,6 +21,7 @@ Last Updated: 2026-09-08
 - Shared-tree artifacts are marker-gated and confined to an approved artifact root; dirty baselines and closeout deltas are checked.
 - Hook registration is declarative: events and matchers live in `hooks/hooks.json`; source or generated hook code implements behavior. Codebase-mapper blocks an announced map update until the matching Skill invocation is recorded.
 - Generated docs are disposable: `docs/scripts/generate-reference.mjs` owns `docs/src/content/docs/reference/`; edit manifests or the generator instead.
+- Agent-facing drift is checked after every project `Write` and `Edit`: `.claude/hooks/agent-doc-drift.js` scans only dirty paths and requires a matching hand-written plugin guide or README for hook, skill, agent, CLI, MCP, briefing, guidance, refusal, and live-rule changes. Generated reference pages do not count as companions.
 - Stream oversized inputs, never load them: quartermaster's miner reads transcripts line by line into bounded collector state and emits aggregates, because one session runs to tens of megabytes. Quotes, titles, and paths are clipped in one place as they are collected, so no reporting path can leak a whole transcript into context.
 - Poll local APIs: the dashboard uses HTTP JSON endpoints and a 2.5-second polling layer, with no browser-side SQLite or WebSocket dependency.
 - Keep project opt-in local: Quartermaster writes project-local settings, and Observability writes telemetry opt-in state, rather than machine-wide configuration.

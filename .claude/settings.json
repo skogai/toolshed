@@ -13,5 +13,19 @@
     "codebase-mapper@eigenwise-toolshed": true,
     "observability@eigenwise-toolshed": true,
     "quartermaster@eigenwise-toolshed": true
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/.claude/hooks/agent-doc-drift.js\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
   }
 }

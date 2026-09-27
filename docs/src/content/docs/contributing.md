@@ -34,4 +34,6 @@ The build regenerates the reference pages before Astro checks and builds the sit
 
 For plugin-specific contracts, read that plugin's `README.md` before changing a guide. Source changes and documentation changes should land together when the user-visible workflow changes.
 
+The repository runs `.claude/hooks/agent-doc-drift.js` after every Claude Code `Write` and `Edit`. It uses changed-path heuristics to flag agent-facing hook, skill, agent, CLI, MCP, briefing, guidance, and live-rule changes that have no matching hand-written plugin guide or README update. Generated reference pages do not clear the warning, and the lightweight hook does not query Sidequest for follow-up tickets. Restart Claude Code after changing `.claude/settings.json`, because hook registrations load at session start.
+
 See [release process](../release-process/) for publishing changes.

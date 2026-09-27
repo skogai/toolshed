@@ -1,6 +1,6 @@
 # Entry points
 
-Last Updated: 2026-09-08
+Last Updated: 2026-09-16
 
 ## User and runtime entry points
 
@@ -20,6 +20,7 @@ Last Updated: 2026-09-08
 
 ## Maintainer entry points
 
+- Project documentation-drift hook: `.claude/settings.json` registers `.claude/hooks/agent-doc-drift.js` for every `PostToolUse` `Write|Edit`; it compares dirty agent-facing paths with matching hand-written plugin docs and emits model-visible guidance without editing generated reference pages.
 - Sidequest build and tests: `plugins/sidequest/package.json` scripts. `plugins/sidequest/scripts/build.mjs` compiles runtime output and generates bundled agents through `scripts/generate-bundled-agents.mjs`; `build-check.mjs` and `test-full.mjs` run package gates through the owned process boundary in `plugins/sidequest/scripts/owned-process-tree.js`.
 - Release workflow: `scripts/release/README.md`, then the release CLI and `.release/` files; `scripts/release/daily-release.mjs` drives the once-a-day notification release.
 - Docs build and reference generation: `docs/package.json` and `docs/scripts/generate-reference.mjs`.
